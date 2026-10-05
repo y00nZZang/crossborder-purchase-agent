@@ -1,0 +1,6 @@
+{
+  "name": "crossborder-purchase",
+  "version": "0.1.0",
+  "description": "상품 탐색·견적 비교·라쿠텐 북스 구매·몰테일 배송신청 및 추적을 위한 실험용 plugin",
+  "skills": "./skills/"
+}

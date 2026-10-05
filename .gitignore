@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+private/
+**/private/
+__pycache__/
+*.pyc
+*.sqlite*
+*.log
+.DS_Store
