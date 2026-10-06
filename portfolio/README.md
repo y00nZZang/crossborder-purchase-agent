@@ -17,6 +17,8 @@
 
 HS 후보 선택의 중앙 처리시간은 HF94개 표본에서6.4배, 실제 메루카리30개에서5.7배 빨랐습니다. 메루카리의 독립 GPT-6 Sol HS6 일치율은84%였고, HF 정답 정확도는Jev29.8%·Luna38.3%로 차이가 있었습니다. 모든 조건에서 같은 성능을 유지했다고 일반화하지 않고 품질·보류·시간·비용을 분리했습니다.
 
+HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 분류코드를 붙인 공개 평가 데이터셋입니다. 상품명·속성·카테고리를 제공하며, 이번 실험은94개 표본의 HS6 정답을 사용했습니다. [원본 데이터셋](https://huggingface.co/datasets/ATH-MaaS/HSCodeComp).
+
 [공개 실험 설명](https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md) · [코드·노트북](https://github.com/y00nZZang/product-catalog/tree/main/notebooks) · [정제 측정값](https://github.com/y00nZZang/product-catalog/blob/main/notebooks/two-datasets-results-2026-10-06.json)
 
 실험 결과는2026-10-06이며 운영 서비스 도입이나 전체 URL 분석시간 개선 결과가 아닙니다.

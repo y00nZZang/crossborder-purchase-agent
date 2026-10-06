@@ -331,8 +331,8 @@ API가 없는 사이트의 화면 변경·접근 제한에 어떻게 대응할 �
 부록 · Jev 판단 모델 비교 실험
 관세 후보 선택의 처리시간과 품질을 따로 측정했습니다.
 16   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.06
-문장을 생성하는 LLM과, 정해진 후보·확률을 반환하는 Jev를 비교했습니다.
-상품 입력과 공식 HS 목록을 동일하게 제공해 2→4→6자리 경로를 선택했습니다.
+HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 코드를 붙인 공개 평가셋입니다.
+상품명·속성·카테고리를 제공하며, 이번에는94개 표본의 HS6 정답과 비교했습니다.
 데이터
 실행 범위
 품질 평가 기준
@@ -342,10 +342,11 @@ HSCodeComp
 메루카리
 실제 판매글30개 전체
 독립 GPT-6 Sol 심사 결과와 일치
-비교: Jev 1.13 ↔ GPT-6 Luna low. 심사자는 기존 예측과 공급사 이름을 보지 않았습니다.
-텍스트만 사용한 단일 경로 실험입니다. 웹 검색·이미지 분석·정답으로 후보 축소는 하지 않았습니다.
+비교: Jev1.13 ↔ GPT-6 Luna low. 심사자는 기존 예측·공급사 이름을 보지 않았습니다.
+텍스트만 사용한 단일 경로 비교이며 웹 검색·이미지 분석을 제외했습니다.
+데이터셋 원본: huggingface.co/datasets/ATH-MaaS/HSCodeComp
 
-근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md ; https://github.com/y00nZZang/product-catalog/blob/main/notebooks/two-datasets-results-2026-10-06.json ; https://docs.typesafe.ai/primitives/choice ; https://huggingface.co/datasets/ATH-MaaS/HSCodeComp . 실험은 운영 서비스 변경이나 전체 URL 분석시간 비교가 아니다.
+근거: HSCodeComp: 실제 전자상거래 상품632개,32개 대분류에 전문가가 미국 기준10자리 코드를 주석한 공개 벤치마크. 본 실험은94개 표본의 앞6자리HS6와 비교. https://huggingface.co/datasets/ATH-MaaS/HSCodeComp ; https://arxiv.org/abs/2510.19631 ; https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md . 공식 한국 HSK 결정문이나 사람의 현지 재검토로 간주하지 않는다.
 
 ## 17 · Jev 실험 부록
 
