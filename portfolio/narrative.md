@@ -56,9 +56,28 @@ Codex 플러그인 · 상품 URL 분석기
 
 ## 4
 
+가입과 이용 준비에서 겪은 어려움
+한국 거주 개인으로 직접 구매를 준비하며 확인한 내용입니다.
+04   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+메루카리
+해외 거주자로 가입·구매를
+진행하는 데 어려움이 있었습니다.
+이번 직접 구매 시험에서는 제외하고
+라쿠텐을 중심으로 진행했습니다.
+tenso
+본인확인 중 주소 증빙 서류의
+보완·재제출이 필요했습니다.
+서류 조건을 맞추는 과정이 까다롭게 느껴져
+실구매 시험은 몰테일 경로로 이어갔습니다.
+구매 준비에는 가격 비교 외에도 계정·거주지·인증 조건을 확인하는 과정이 있었습니다.
+
+근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experience-notes.md . 사용자 경험과 기존 조사 기록. 현재의 모든 해외 사용자에게 적용되는 정책으로 일반화하지 않음.
+
+## 5
+
 구매 경로별 부분 견적
 2026-09-21 · FJORD 통상판 Blu-ray 1개를 기준으로 조사했습니다.
-04   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+05   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 경로
 확인 비용 합계
 조건
@@ -79,11 +98,32 @@ SAZO
 
 근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/route-comparison.md ; https://www.tenso.com/jp/estimate ; https://www.worldshopping.global/simulator/ ; https://books.rakuten.co.jp/rb/18584086/ . SAZO 사용자 제공 캡처, 세부 운송·특전 조건 미확인.
 
-## 5
+## 6
+
+소량 구매의 배송비에 대한 생각
+작고 가벼운 상품을 한 개 구매할 때 배송비의 부담이 크게 느껴졌습니다.
+06   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+관찰과 체감
+최소 과금 구간에 해당하는 소형 상품은
+무게가 더 작아도 배송비가 비례해서
+줄지는 않을 수 있다고 생각했습니다.
+단품 구매에서는 상품 크기에 비해
+배송비가 크게 느껴졌습니다.
+확인해보고 싶은 가설
+여러 상품을 한 포장으로 보내면
+기본 배송비를 나누어 부담할 수 있어
+개당 비용이 줄어들 수 있지 않을까?
+개별 발송 합계 ↔ 합배송 총액
+운임 + 합포장·처리·보관 비용을 비교
+합배송 이익은 아직 검증하지 않았습니다. 합친 무게·부피와 추가 수수료에 따라 달라질 수 있습니다.
+
+근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experience-notes.md ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/route-comparison.md . 사용자 체감과 합배송 가설. 실제 합배송 실측·절감액 미검증.
+
+## 7
 
 만들어본 두 가지 도구
 구매 실행을 보조하는 도구와, 구매 전 정보를 분석하는 도구를 별도로 구현했습니다.
-05   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+07   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 01  Codex 플러그인
 조사·입력·상태 확인 보조
 상품 조사와 배송대행 비교
@@ -98,11 +138,11 @@ SAZO
 
 근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/README.md ; https://github.com/y00nZZang/product-catalog/blob/main/README.md . 두 도구는 현재 자동 API 연동되지 않음.
 
-## 6
+## 8
 
 Codex 플러그인 구성
 다섯 개 skill이 작업 절차를 안내하고, Python helper가 계산과 상태를 관리합니다.
-06   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+08   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 상품 조사
 배송대행 비교
 라쿠텐 구매
@@ -118,11 +158,11 @@ Python + SQLite
 
 근거: https://github.com/y00nZZang/crossborder-purchase-agent/tree/main/plugin ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/design.md
 
-## 7
+## 9
 
 Codex 플러그인 시험 결과
 2026-10-05 · 별도 세션에서 라쿠텐 북스 구매와 몰테일 신청을 진행했습니다.
-07   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+09   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 확인한 결과
 Blu-ray 1개 주문 결과 대조
 몰테일 접수 화면과 저장 목록 확인
@@ -134,11 +174,39 @@ Blu-ray 1개 주문 결과 대조
 
 근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experiment.md . 사용자 제공 접수 캡처는 개인정보 없는 부분만 사용, 원본 우측 잘림 유지.
 
-## 8
+## 10
+
+배송 추적 메일 확인과 예약 작업
+사용자가 반복 추적을 요청하면 Codex의 예약 작업 도구에 연결하도록 구성했습니다.
+10   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+주문 메일 확인
+반복 작업 등록
+변경 사항 알림
+Gmail·판매처·배대지 상태 대조
+해당 주문과 사건 시각 확인
+단회 조회 성공 후 예약
+사용자 지정 시간·시간대 적용
+운송장·입고·출고 등 변경 확인
+조회 실패·사용자 조치도 알림
+등록된 작업 ID를 실행 기록에 저장해 중복 등록을 막고,
+변화가 없으면 알리지 않으며 배송완료·취소 시 예약을 종료하도록 했습니다.
+예약 등록 절차는 구현했습니다. 이번 구매 시험에서의 실제 등록·지속 실행은 검증하지 않았습니다.
+
+근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/plugin/skills/crossborder-track-delivery/SKILL.md ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/plugin/references/tracking.md . 등록 절차 구현과 실제 등록·반복 실행 검증은 구분.
+
+## 11
+
+URL 분석기 · 실행 화면
+https://catalog.janghan.dev/  ·  상품 링크를 입력해 배송·세금 정보를 확인합니다.
+11   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md ; https://catalog.janghan.dev/ . 기존 관측 결과 화면, 실측·실제 납부 세액 아님.
+
+## 12
 
 URL 분석기의 처리 과정
 라쿠텐 이치바·북스와 메루카리의 상품 URL을 입력으로 사용합니다.
-08   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+12   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 상품 정보 수집
 배송 정보 추정
 관세 정보 추정
@@ -153,19 +221,11 @@ HS·HSK 후보와 공개 세율
 
 근거: https://github.com/y00nZZang/product-catalog/blob/main/README.md ; https://github.com/y00nZZang/product-catalog/blob/main/docs/architecture.md
 
-## 9
-
-URL 분석기 결과 화면
-2026-10-05 운영 화면 · 상품·배송·세금 요약과 미확인 조건을 함께 표시합니다.
-09   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
-
-근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md ; https://catalog.janghan.dev/ . 기존 관측 결과 화면, 실측·실제 납부 세액 아님.
-
-## 10
+## 13
 
 추론과 계산의 처리 기준
 판매처 정보만으로 부족한 항목을 보완하되, 확인값과 추정값을 구분합니다.
-10   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+13   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 항목
 처리 방식
 결과에 남기는 정보
@@ -184,11 +244,11 @@ FTA·WTO 조건을 임의 적용하지 않습니다. 포장 실측·실제 납�
 
 근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/public-hsk-rates-2026-10-05.md ; https://github.com/y00nZZang/product-catalog/tree/main/src/ai ; https://unipass.customs.go.kr/clip/hsinfosrch/openULS0401009Q.do
 
-## 11
+## 14
 
 구현 확인과 추가 검증
 2026-10-05 공개본에서 실행한 테스트와 실제 시험의 범위를 구분했습니다.
-11   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+14   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 대상
 확인한 범위
 남은 검증
@@ -206,11 +266,11 @@ URL 분석기
 
 근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experiment.md ; https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md
 
-## 12
+## 15
 
 현재까지 확인한 내용과 다음 검증
 구매 업무 보조와 비용 정보 추정의 실행 가능성을 각각 확인했습니다.
-12   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
+15   윤장한 · 구매대행 조사와 도구 구현 · 2026.10.06
 확인한 내용
 사용자 인증·최종 구매를 포함해
 주문 대조와 배송신청을 진행했습니다.
