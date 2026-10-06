@@ -139,20 +139,26 @@ Python + SQLite
 ## 8
 
 Codex 플러그인 시험 결과
-상품 URL과 구매 목적을 전달한 뒤, 확인·승인 중심의 대화로 배송대행 접수까지 진행했습니다.
+상품 URL과 목적을 전달한 뒤 확인·승인 중심으로 진행했습니다. 아래 대화는 실제 기록을 축약했습니다.
 08   윤장한 · 직구 조사와 도구 구현 · 2026.10.06
 첫 요청 1회 + 후속 입력 6회
-후속 입력의 구성
-로그인 완료 알림
-2회
-입력·제출 승인
-2회
-구매·인증 완료 알림
-2회
-에이전트가 상품·배송지 확인, 주문 정보 입력과 신청 결과 대조를 수행했습니다.
-단일 사례 · 사용자 메시지 7회 기준. 로그인·직접 구매·통관 인증의 화면 조작 횟수는 미측정입니다.
+나 · 입력 순서
+에이전트 · 안내와 처리 결과
+① URL + 구매·배송신청 요청
+상품 확인 → 로그인 안내
+②·③ 각 사이트 로그인 완료
+배송지 확인 → 정보 입력 승인 요청
+④ 주소 입력 승인 + 무게 조건 보완
+주소 입력·견적 비교 → 구매 확정 안내
+⑤ 직접 구매 완료 알림
+주문 대조·신청서 작성 → 제출 확인
+⑥ 제출 진행 승인
+제출 시도 → 통관 인증 안내
+⑦ 인증 완료 알림
+동일 신청서 제출 → 접수 완료 확인
+사용자 메시지 기준의 단일 사례입니다. 로그인·구매·인증 화면의 클릭·입력 횟수는 별도이며 미측정입니다.
 
-근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/interaction-count.md ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experiment.md . 2026-10-05 실험 전체 7개 사용자 메시지 대조. 대화 횟수이며 브라우저 클릭/입력 횟수와 다름.
+근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/interaction-count.md ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experiment.md . 사용자 메시지7개. 로그인 두 번을 한 행으로 묶은 요약이며 실제 원문 대화 캡처가 아님.
 
 ## 9
 
@@ -170,7 +176,6 @@ Codex 플러그인 시험 결과
 발송·입고·출고·통관 상태 대조
 의미 있는 변경이나 사용자 조치가 필요할 때 알리고,
 배송완료·취소가 확인되면 예약을 종료합니다.
-10/6 플러그인 동작 개정. 메일·예약 도구 연결이 필요하며, 실제 예약의 장기 실행 결과는 없습니다.
 
 근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/plugin/skills/crossborder-track-delivery/SKILL.md ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/daily-tracking.md . 2026-10-06 v0.1.1 동작 변경. 실거래 당시 동작과 구분.
 
@@ -203,25 +208,36 @@ HS·HSK 후보와 공개 세율
 
 ## 12
 
-TCG 상품과 주류의 시험 결과
-라이브 분석 결과와 저장된 표본의 분류·계산 검증을 구분했습니다.
+관세 실험 결과
+동일한 항목으로 정리하되, 실제 URL 분석과 합성 계산 표본의 차이는 구분했습니다.
 12   윤장한 · 직구 조사와 도구 구현 · 2026.10.06
-TCG 상품 · 실제 URL 분석
+항목
+TCG 상품
+주류(위스키)
+검증 자료
+메루카리 실제 판매글
+2026-10-05 운영 분석
+제조사 사양 + 합성 계산 입력
+2026-09-30 저장 시험
+분류·추출 결과
 HSK 9504400000 후보
-공개 기본관세 8%
-일반 부가세 10% 가정
+whisky 후보 · 700ml·43% 추출
+병 수는 미확인
+계산 조건
+관측 판매가70,000JPY
+기본관세8%·일반 부가세10% 가정
+별도 합성 입력: $200·750ml 1병·40%
+환율1,000원/$·운임0 가정
 예상 세금
 115,776 ~ 117,335원
-주류 · 사양·계산 표본
-위스키 사양에서 700ml·43% 추출
-위스키·와인·사케 분류 회귀 통과
-병 수·용량 경계와 누락 입력 검사
-위스키 합성 계산 예: 353,696원
-상품 $200 · 750ml 1병 · 40%
-환율 1,000원/$ · 운임 0 가정
-실제 납부세액의 정답 검증은 아닙니다. 주류 사양 추출은9/30 당시 모델, TCG는10/5 운영 결과입니다.
+353,696원
+확인한 범위
+상품 분류→공개 세율→계산 연결
+사양 추출과 계산 회귀
+용량·병 수 경계 및 누락 입력 검사
+실제 납부세액과 대조한 정확도 검증은 아닙니다. 주류의 사양 추출 표본과 산술 표본은 서로 다릅니다.
 
-근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/alcohol-test-evidence.md ; https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md . TCG 10/5 운영 결과. 주류 9/30 제조사 사양 LLM1회와 오프라인 회귀.
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/alcohol-test-evidence.md ; https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md . TCG 10/5 운영 결과와 주류9/30 제조사 사양 추출/합성 계산은 별도 시험.
 
 ## 13
 
@@ -236,8 +252,8 @@ HSK 9504400000 후보
 판매처 확대
 라쿠텐·메루카리 밖의 사이트에서도 안정적으로 수집·파싱할 수 있는가
 API가 없는 사이트의 화면 변경·접근 제한에 어떻게 대응할 것인가
-라쿠텐은 API로 접근했습니다. 메루카리는 공식 파트너 API 연동 사례가 있지만,
-이번 구현은 해당 API 권한을 사용하지 않았습니다.
+라쿠텐은 API로 상품 정보를 가져왔습니다.
+메루카리는 웹페이지를 크롤링하고 HTML을 파싱했습니다.
 
 근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md ; https://careers.mercari.com/mercan/articles/47692/ . 2024-11-15 공식 인터뷰의 해외 파트너 API 시스템 연동 사례. 이 프로젝트의 접근 권한 획득/사용 의미 아님.
 
