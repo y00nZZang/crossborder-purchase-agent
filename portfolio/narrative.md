@@ -139,26 +139,25 @@ Python + SQLite
 ## 8
 
 Codex 플러그인 시험 결과
-상품 URL과 목적을 전달한 뒤 확인·승인 중심으로 진행했습니다. 아래 대화는 실제 기록을 축약했습니다.
+첫 요청 1회 + 후속 입력 6회로 배송대행 접수까지 진행했습니다.
 08   윤장한 · 직구 조사와 도구 구현 · 2026.10.06
-첫 요청 1회 + 후속 입력 6회
-나 · 입력 순서
-에이전트 · 안내와 처리 결과
-① URL + 구매·배송신청 요청
-상품 확인 → 로그인 안내
-②·③ 각 사이트 로그인 완료
-배송지 확인 → 정보 입력 승인 요청
-④ 주소 입력 승인 + 무게 조건 보완
-주소 입력·견적 비교 → 구매 확정 안내
-⑤ 직접 구매 완료 알림
-주문 대조·신청서 작성 → 제출 확인
-⑥ 제출 진행 승인
-제출 시도 → 통관 인증 안내
-⑦ 인증 완료 알림
-동일 신청서 제출 → 접수 완료 확인
-사용자 메시지 기준의 단일 사례입니다. 로그인·구매·인증 화면의 클릭·입력 횟수는 별도이며 미측정입니다.
+이 상품을 구매하고
+배송대행 신청까지 진행해줘
+나
+상품·배송 조건 확인 후
+로그인과 정보 입력 승인을 요청
+에이전트
+로그인 완료 · 입력/제출 승인
+구매/인증 완료 알림
+나
+주문 정보를 대조하고 신청서 작성
+인증 후 같은 신청서로 접수 완료
+에이전트
+실제 접수 결과
+대화는 실제 기록의 요약입니다. 후속 입력은 로그인2회·승인2회·구매/인증 완료 알림2회입니다.
+메시지 수 기준이며, 로그인·구매·인증 화면의 클릭과 입력 횟수는 별도로 측정하지 않았습니다.
 
-근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/interaction-count.md ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experiment.md . 사용자 메시지7개. 로그인 두 번을 한 행으로 묶은 요약이며 실제 원문 대화 캡처가 아님.
+근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/interaction-count.md ; https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experiment.md . 실제 대화 요약. 로그인2회·승인2회·구매/인증 완료2회를 묶어 표현. 사용자 첨부 대화 스타일 참고, 실제 접수 캡처 유지.
 
 ## 9
 
@@ -182,10 +181,17 @@ Codex 플러그인 시험 결과
 ## 10
 
 URL 분석기 · 실행 화면
-https://catalog.janghan.dev/  ·  URL 입력 → 상품 수집 → 배송·관세 추정
+https://catalog.janghan.dev/
 10   윤장한 · 직구 조사와 도구 구현 · 2026.10.06
+URL 입력
+상품 링크 하나로
+분석을 시작합니다.
+결과 확인
+상품·배송·세금과
+미확인 조건을
+함께 표시합니다.
 
-근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md ; https://catalog.janghan.dev/ . 2026-10-06 캡처, 10/5 저장 관측 결과. 동일 페이지의 입력·결과 영역을 나누어 배치.
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/verification.md . 사용자 제공 상품 분석 캡처 원본을 자르지 않고 삽입. 관측·추정값이며 실제 결제액 아님.
 
 ## 11
 
