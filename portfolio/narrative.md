@@ -324,3 +324,63 @@ API가 없는 사이트의 화면 변경·접근 제한에 어떻게 대응할 �
 공개 코드  github.com/y00nZZang/crossborder-purchase-agent  ·  github.com/y00nZZang/product-catalog
 
 근거: https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/closing-perspective.md . 사용자 의견·미래 가정이며 현재 제공되는 MCP나 사업 경쟁력의 검증 결과가 아님.
+
+
+## 16 · Jev 실험 부록
+
+부록 · Jev 판단 모델 비교 실험
+관세 후보 선택의 처리시간과 품질을 따로 측정했습니다.
+16   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.06
+문장을 생성하는 LLM과, 정해진 후보·확률을 반환하는 Jev를 비교했습니다.
+상품 입력과 공식 HS 목록을 동일하게 제공해 2→4→6자리 경로를 선택했습니다.
+데이터
+실행 범위
+품질 평가 기준
+HSCodeComp
+94개 층화 표본 / 전체632개
+공개 전문가 라벨과 HS6 일치
+메루카리
+실제 판매글30개 전체
+독립 GPT-6 Sol 심사 결과와 일치
+비교: Jev 1.13 ↔ GPT-6 Luna low. 심사자는 기존 예측과 공급사 이름을 보지 않았습니다.
+텍스트만 사용한 단일 경로 실험입니다. 웹 검색·이미지 분석·정답으로 후보 축소는 하지 않았습니다.
+
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md ; https://github.com/y00nZZang/product-catalog/blob/main/notebooks/two-datasets-results-2026-10-06.json ; https://docs.typesafe.ai/primitives/choice ; https://huggingface.co/datasets/ATH-MaaS/HSCodeComp . 실험은 운영 서비스 변경이나 전체 URL 분석시간 비교가 아니다.
+
+## 17 · Jev 실험 부록
+
+HS 후보 판단시간을 5~6배 줄였습니다
+동일한 입력에서 Jev의 중앙 처리시간과 추정 비용이 더 낮았습니다.
+17   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.06
+HF 표본
+6.4배 빠르게
+추정 비용57.0% 감소
+메루카리
+5.7배 빠르게
+추정 비용53.9% 감소
+HS 분류 단계만 비교했습니다. 전체 URL 분석시간이나 운영 SLA의 개선율이 아닙니다.
+
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md . HF94개: Jev0.6747679375초/Luna4.296453624초, 비용0.023445996/0.0544944USD. Mercari30개:0.6689978755/3.79168373초, 비용0.00719754/0.01560205USD. 시간은 각 순차 HTTP+파싱+검증 시간 합의 중앙값. 공급사2개 동시 실행, 단계는 순차. 수집·포장·세금 계산·큐 대기시간 제외. 비용은 usage기반 추정, 청구서 확정액 아님.
+
+## 18 · Jev 실험 부록
+
+품질은 평가 기준별로 구분했습니다
+메루카리의 상위 모델 HS6 일치율84%를 기록했고, HF 정확도 차이도 확인했습니다.
+18   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.06
+평가 기준
+Jev
+GPT-6 Luna
+HF 전문가 라벨 · 전체94개 HS6 정확도
+29.8% (28/94)
+38.3% (36/94)
+메루카리 · 심사자 HS6 일치 (25개)
+84.0% (21/25)
+76.0% (19/25)
+메루카리 · 보류 포함 전체 판단 일치
+70.0% (21/30)
+76.7% (23/30)
+상위 모델과의 일치는 정답 정확도가 아닙니다. HF에서는 Jev의 정확도가 더 낮았습니다.
+도입 방향(제안): 초기 후보 판단을 빠르게 처리하고, 근거 부족·최종 분류는 추가 검토합니다.
+실험 코드·노트북·측정 결과: github.com/y00nZZang/product-catalog/tree/main/notebooks
+
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md ; https://github.com/y00nZZang/product-catalog/blob/main/notebooks/two-datasets-results-2026-10-06.json . HF94개: Jev28/94(29.8%), Luna36/94(38.3%), 보류 포함. 답변 사례만:28/81(34.6%),36/65(55.4%). 독립 Sol이HS6를 선택한Mercari25개에서Jev21/25(84%),Luna19/25(76%). 보류 포함30개 전체판단은Jev21/30(70%),Luna23/30(76.7%). Sol은정답/사람검토아님, 공유모델군편향가능. 운영도입하지않았으며 제안은 실험 결과에 대한 해석이다.

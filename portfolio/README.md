@@ -13,9 +13,17 @@
 
 도구의 포장·세금 추정 정확도와 비API 사이트 수집, 사업의 합배송 비용 최적화는 서로 다른 미확인 문제입니다. 추가 검증 계획으로 제시하지 않고 이번 구현의 범위로 구분했습니다. 마지막은 에이전트 커머스와 물류 노하우에 대한 개인적 생각으로 정리했습니다.
 
+## 부록 · Jev 판단 모델 비교 실험
+
+HS 후보 선택의 중앙 처리시간은 HF94개 표본에서6.4배, 실제 메루카리30개에서5.7배 빨랐습니다. 메루카리의 독립 GPT-6 Sol HS6 일치율은84%였고, HF 정답 정확도는Jev29.8%·Luna38.3%로 차이가 있었습니다. 모든 조건에서 같은 성능을 유지했다고 일반화하지 않고 품질·보류·시간·비용을 분리했습니다.
+
+[공개 실험 설명](https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md) · [코드·노트북](https://github.com/y00nZZang/product-catalog/tree/main/notebooks) · [정제 측정값](https://github.com/y00nZZang/product-catalog/blob/main/notebooks/two-datasets-results-2026-10-06.json)
+
+실험 결과는2026-10-06이며 운영 서비스 도입이나 전체 URL 분석시간 개선 결과가 아닙니다.
+
 ## 제출 자료
 
-- [PDF — 15장](crossborder-portfolio.pdf)
+- [PDF — 18장 · Jev 부록3장](crossborder-portfolio.pdf)
 - [편집용 PPTX](crossborder-portfolio.pptx)
 - [원고와 출처](narrative.md)
 - [사용자 입력 집계](interaction-count.md)
