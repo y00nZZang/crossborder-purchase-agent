@@ -31,7 +31,7 @@ python3 plugin/scripts/purchase_agent.py extract tests/fixtures/product.html --u
 python3 scripts/package_plugin.py
 ```
 
-패키지: `dist/crossborder-purchase-0.1.0.zip`. Codex plugin을 지원하는 환경에서 로컬 패키지로 등록하거나 `plugin/skills/.../SKILL.md`를 읽도록 요청하세요. 브라우저 도구는 별도로 연결되어 있어야 합니다. 추적 시 Gmail·예약 도구는 선택 사항입니다. 설치 UI는 클라이언트 버전에 따라 달라질 수 있습니다.
+패키지: `dist/crossborder-purchase-0.1.1.zip`. Codex plugin을 지원하는 환경에서 로컬 패키지로 등록하거나 `plugin/skills/.../SKILL.md`를 읽도록 요청하세요. 브라우저 도구는 별도로 연결되어 있어야 합니다. 추적 시 Gmail·예약 도구는 선택 사항입니다. 설치 UI는 클라이언트 버전에 따라 달라질 수 있습니다.
 
 처음에는 다음처럼 조사만 실행하세요.
 
@@ -49,3 +49,6 @@ python3 scripts/package_plugin.py
 - [명령별 입력 계약](plugin/references/runtime.md)
 
 개인 프로젝트이며 SAZO·Rakuten·Malltail의 공식 제품이나 제휴 서비스가 아닙니다. Codex를 구현·실험에 사용했으며 기술·제품 판단과 결과 검토는 프로젝트 작성자가 수행했습니다. 원본 비공개 저장소의 Git 이력을 포함하지 않는 공개용 스냅샷입니다.
+
+
+2026-10-06 v0.1.1: 구매 접수 확인 직후 Codex 일일 메일 추적을 등록하는 기본 후속 절차를 추가했습니다. 배송대행 신청 전부터 시작하며 같은 예약을 재사용합니다. 사용자 단발 요청·추적 제외는 우선합니다. [동작과 검증](docs/daily-tracking.md).

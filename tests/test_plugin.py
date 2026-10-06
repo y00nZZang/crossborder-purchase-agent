@@ -91,6 +91,28 @@ class StateTests(unittest.TestCase):
         self.assertNotIn('synthetic-order',value); self.assertNotIn('profile-A',value)
         self.assertTrue(schedule_plan(self.l.read(self.id))['requires_first_run_check'])
         self.assertEqual(self.path.stat().st_mode & 0o777,0o600)
+    def test_daily_schedule_starts_after_order_before_forwarding(self):
+        with self.assertRaises(Invalid): schedule_plan(self.l.read(self.id))
+        self.order()
+        plan = schedule_plan(self.l.read(self.id))
+        self.assertEqual(plan['registration_trigger'], 'purchase_confirmed')
+        self.assertEqual(plan['interval_days'], 1)
+        self.assertTrue(plan['forwarding_pending'])
+        self.assertFalse(plan['existing_schedule'])
+        self.assertNotIn('synthetic-order', plan['prompt'])
+
+    def test_daily_schedule_reuses_registration_after_forwarding(self):
+        self.order(); self.l.attach_schedule(self.id, 'daily-order-watch')
+        attempt = self.l.begin(self.id, 'forwarding')
+        self.resolve(attempt, 'synthetic-forwarding')
+        plan = schedule_plan(self.l.read(self.id))
+        self.assertTrue(plan['existing_schedule'])
+        self.assertFalse(plan['forwarding_pending'])
+
+    def test_daily_schedule_rejects_cancelled_order(self):
+        self.order(); self.l.cancel(self.id, 'synthetic-cancellation-evidence')
+        with self.assertRaises(Invalid): schedule_plan(self.l.read(self.id))
+
     def test_concurrent_purchase_only_one_attempt(self):
         self.approve()
         def worker(_):

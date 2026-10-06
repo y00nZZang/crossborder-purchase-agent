@@ -1,4 +1,4 @@
-# Crossborder Purchase — experimental 0.1.0
+# Crossborder Purchase — experimental 0.1.1
 
 상품 탐색·배송대행 견적·승인된 라쿠텐 북스 구매·몰테일 신청·배송 추적을 연결하는 Codex skills 패키지입니다. Python 3.10+ 표준 라이브러리만 사용하며 별도 API 키가 필요하지 않습니다. 브라우저·Gmail·예약 작업은 실행하는 Codex 환경의 연결 도구를 이용합니다.
 
@@ -35,10 +35,13 @@ python3 scripts/package_plugin.py
 
 ## 패키징·설치 경계
 
-`plugin.json`은 portable manifest, `.codex-plugin/plugin.json`은 Codex 호환 manifest입니다. 빌드 명령은 `dist/crossborder-purchase-0.1.0.zip`을 생성합니다. ZIP에는 skills, references, scripts와 manifest가 포함됩니다. 로컬 설치 후 별도 세션 실험을 진행했습니다. 공개 마켓플레이스 등록은 하지 않았습니다. 배포 형식은 [공식 패키징 안내](https://developers.openai.com/plugins/build/plugins)를 2026-10-05 확인했습니다.
+`plugin.json`은 portable manifest, `.codex-plugin/plugin.json`은 Codex 호환 manifest입니다. 빌드 명령은 `dist/crossborder-purchase-0.1.1.zip`을 생성합니다. ZIP에는 skills, references, scripts와 manifest가 포함됩니다. 로컬 설치 후 별도 세션 실험을 진행했습니다. 공개 마켓플레이스 등록은 하지 않았습니다. 배포 형식은 [공식 패키징 안내](https://developers.openai.com/plugins/build/plugins)를 2026-10-05 확인했습니다.
 
 선행 연결: 브라우저, Gmail 읽기, 추적을 예약할 경우 Codex 예약 작업 도구. 자동 연결·비밀번호 보관·쿠키 복제는 제공하지 않습니다. 로그인/추가 인증은 사용자가 준비합니다. 설치 여부와 도구 연결 여부를 구분합니다.
 
 ## 후속 검증
 
-2026-10-05 실제 주문 대조와 몰테일 접수 결과는 [실험 기록](../docs/experiment.md)에 있습니다. 다음 과제는 외부 주문 import, 운송 방식별 필수 입력과 USD 환산, 운송장 보완·실측 운임·수령 검증입니다. 기존 주문과 신청을 먼저 확인하고 재실험을 이유로 중복 구매하지 않습니다.
+2026-10-05 실제 주문 대조와 몰테일 접수 결과는 [실험 기록](https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/experiment.md)에 있습니다. 다음 과제는 외부 주문 import, 운송 방식별 필수 입력과 USD 환산, 운송장 보완·실측 운임·수령 검증입니다. 기존 주문과 신청을 먼저 확인하고 재실험을 이유로 중복 구매하지 않습니다.
+
+
+0.1.1은 구매 확인 후 일일 추적 등록을 기본 후속 절차로 연결합니다.10/5 실구매는0.1.0 기록입니다. [일일 추적](https://github.com/y00nZZang/crossborder-purchase-agent/blob/main/docs/daily-tracking.md).

@@ -2,10 +2,12 @@
 """Package only distributable source; no runtime state, private files or caches."""
 from pathlib import Path
 import zipfile
+import json
 
 root=Path(__file__).resolve().parents[1]
 source=root/'plugin'
-out=root/'dist'/'crossborder-purchase-0.1.0.zip'
+version=json.loads((source/'plugin.json').read_text())['version']
+out=root/'dist'/f'crossborder-purchase-{version}.zip'
 out.parent.mkdir(exist_ok=True)
 with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(source.rglob('*')):
