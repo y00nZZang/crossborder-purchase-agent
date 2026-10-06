@@ -1,0 +1,89 @@
+{
+  "checkedDate": "2026-10-06",
+  "product": {
+    "format": "Blu-ray",
+    "quantity": 1,
+    "model": "UPXH-20155",
+    "source": "https://books.rakuten.co.jp/rb/18584086/"
+  },
+  "fx": {
+    "kind": "reference_conversion_not_card_charge",
+    "source": "https://unipass.customs.go.kr/clip/com/bsopcomn/baseinfo/otsd/COM0101049Q.do",
+    "validFrom": "2026-10-04",
+    "validTo": "2026-10-10",
+    "jpyToKrw": "8.6131",
+    "usdToKrw": "1357.14"
+  },
+  "sazo": {
+    "source": "https://sazo.kr/detail/upp/c7142fc4cf706938cdfc394a1efd47089123c538",
+    "kind": "checkout_quote_not_order",
+    "goodsKrw": 50363,
+    "domesticKrw": 0,
+    "internationalKrw": 7715,
+    "clearanceAndDutyLabelKrw": 5036,
+    "totalKrw": 63114
+  },
+  "rakuten": {
+    "currentGoodsJpy": 5666,
+    "domesticJpy": 0,
+    "actualOrderDate": "2026-10-05",
+    "couponJpy": 50,
+    "confirmedOrderJpy": 5616,
+    "evidence": "Order email and purchase history reviewed; private identifiers excluded",
+    "cardSettledKrw": null
+  },
+  "tenso": {
+    "source": "https://www.tenso.com/jp/estimate",
+    "destination": "KR",
+    "weightG": 250,
+    "dimensionsCm": [
+      19,
+      14,
+      2
+    ],
+    "basis": "assumed_not_measured",
+    "method": "EMS",
+    "internationalJpy": 1450,
+    "handlingJpy": 350,
+    "totalShippingJpy": 1800,
+    "excluded": "consolidation, compensation and import tax if applicable"
+  },
+  "worldshopping": {
+    "source": "https://www.worldshopping.global/simulator/",
+    "feeSource": "https://help.worldshopping.global/hc/en-us/articles/4830466068894-Overview-of-Costs",
+    "destination": "KR",
+    "weightG": 250,
+    "dimensionsCm": [
+      19,
+      14,
+      2
+    ],
+    "basis": "assumed_not_measured",
+    "method": "EMS",
+    "internationalJpy": 1450,
+    "handlingJpy": 500,
+    "proxyFeeRate": "0.10",
+    "excluded": "insurance and destination tax if applicable; fee rounding at checkout not verified"
+  },
+  "malltail": {
+    "source": "https://post.malltail.com/services/price_list/JP/KR/KR",
+    "method": "Japan air",
+    "chargeWeightKg": "0.5",
+    "basis": "minimum_band_not_measured",
+    "generalMemberUsd": "14.63",
+    "fuelSurchargeUsd": "1.00",
+    "shippingTotalUsd": "15.63",
+    "actualShippingInvoice": null
+  },
+  "officialStore": {
+    "source": "https://mga-officialstore.com/products/upxh20155",
+    "productPageKrw": 51868,
+    "existingCartKrw": 54078,
+    "internationalShippingKrw": 14419,
+    "totalKrw": 66287,
+    "status": "user_supplied_checkout_quote",
+    "goodsKrw": 51868,
+    "shippingMethod": null,
+    "shippingMethodNote": "not shown in supplied image; do not assume EMS"
+  }
+}
