@@ -15,6 +15,8 @@
 
 ## 부록 · Jev 판단 모델 비교 실험
 
+Jev는 TypeSafe AI가 만든 선택·분류 중심의 판단 모델입니다. 설명문 대신 미리 정한 후보에서 선택하고 후보별 확률을 반환합니다. HS 코드 추론 역시 정해진 코드 후보를 고르는 작업이므로, Jev로 LLM 분류를 대체했을 때 판단시간과 비용을 줄일 수 있는지 실험했습니다. [TypeSafe 공식 소개](https://typesafe.ai/blog/introducing-system-one-models-and-jev).
+
 가정용·취미 범위에서 선별한 새93개에 대해 기존 단일 경로 Jev와 GPT-6 Luna를 비교했습니다. HS 후보 판단의 중앙 처리시간은0.645초/4.510초로 약7배 빨랐고, 추정 API 비용은57.1% 낮았습니다. 운영 서비스 도입이나 전체 URL 분석시간의 개선 결과는 아닙니다.
 
 HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 코드를 붙인 공개 평가 데이터셋입니다. [원본 데이터셋](https://huggingface.co/datasets/ATH-MaaS/HSCodeComp). 서비스 범위는 연구 초안이며 검증된 사조 정책으로 간주하지 않습니다.

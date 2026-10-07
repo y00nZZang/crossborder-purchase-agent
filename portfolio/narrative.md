@@ -331,8 +331,11 @@ API가 없는 사이트의 화면 변경·접근 제한에 어떻게 대응할 �
 부록 · Jev 판단 모델 비교 실험
 가정용·취미 상품의 HS 후보 선택시간과 비용을 비교했습니다.
 16   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.07
-HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 코드를 붙인 공개 평가셋입니다.
-가정용·취미 범위에서 이전 실험과 겹치지 않는 새 상품93개를 평가했습니다.
+Jev는 TypeSafe AI가 만든 선택·분류 중심의 판단 모델입니다.
+설명문 대신 미리 정한 후보에서 선택하고, 후보별 확률을 반환합니다.
+HS 코드 추론도 정해진 코드 중에서 고르는 작업이므로,
+LLM 대신 Jev를 쓰면 판단시간과 비용을 줄일 수 있는지 확인했습니다.
+평가: HSCodeComp(전자상거래 상품632개·전문가 라벨)에서 이전과 겹치지 않는 새93개 선별
 구분
 실험 조건
 선별·평가 원칙
@@ -348,7 +351,7 @@ Jev1.13 ↔ GPT-6 Luna low
 HSCodeComp 원본: huggingface.co/datasets/ATH-MaaS/HSCodeComp
 텍스트만 사용했습니다. 웹 검색·이미지 분석·복수 경로 재선택은 이번 비교에서 제외했습니다.
 
-근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/service-scope-jev-experiment-2026-10-07.md ; https://huggingface.co/datasets/ATH-MaaS/HSCodeComp ; https://docs.typesafe.ai/primitives/choice . 서비스 범위는 연구 초안으로 사조의 검증된 정책이 아니다. 기존 단일 경로 Jev와 Luna만 비교. 정답/보류/실패는 공개 레포에서 확인.
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/service-scope-jev-experiment-2026-10-07.md ; https://typesafe.ai/blog/introducing-system-one-models-and-jev ; https://huggingface.co/datasets/ATH-MaaS/HSCodeComp ; https://docs.typesafe.ai/primitives/choice . 서비스 범위는 연구 초안으로 사조의 검증된 정책이 아니다. 기존 단일 경로 Jev와 Luna만 비교. 정답/보류/실패는 공개 레포에서 확인.
 
 ## 17 · Jev 실험 부록
 
