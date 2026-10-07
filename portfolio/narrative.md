@@ -329,59 +329,61 @@ API가 없는 사이트의 화면 변경·접근 제한에 어떻게 대응할 �
 ## 16 · Jev 실험 부록
 
 부록 · Jev 판단 모델 비교 실험
-관세 후보 선택의 처리시간과 품질을 따로 측정했습니다.
-16   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.06
+가정용·취미 상품의 HS 후보 선택시간과 비용을 비교했습니다.
+16   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.07
 HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 코드를 붙인 공개 평가셋입니다.
-상품명·속성·카테고리를 제공하며, 이번에는94개 표본의 HS6 정답과 비교했습니다.
-데이터
-실행 범위
-품질 평가 기준
-HSCodeComp
-94개 층화 표본 / 전체632개
-공개 전문가 라벨과 HS6 일치
-메루카리
-실제 판매글30개 전체
-독립 GPT-6 Sol 심사 결과와 일치
-비교: Jev1.13 ↔ GPT-6 Luna low. 심사자는 기존 예측·공급사 이름을 보지 않았습니다.
-텍스트만 사용한 단일 경로 비교이며 웹 검색·이미지 분석을 제외했습니다.
-데이터셋 원본: huggingface.co/datasets/ATH-MaaS/HSCodeComp
+가정용·취미 범위에서 이전 실험과 겹치지 않는 새 상품93개를 평가했습니다.
+구분
+실험 조건
+선별·평가 원칙
+대상
+생활·주방 / 의류 / 취미 / 전자기기
+상품 용도를 기준으로 선별
+비교
+Jev1.13 ↔ GPT-6 Luna low
+동일한 상품명·속성·HS 목록
+방식
+단일 경로 HS2 → HS4 → HS6
+정보 부족·복합 재질·세트 유지
+HSCodeComp 원본: huggingface.co/datasets/ATH-MaaS/HSCodeComp
+텍스트만 사용했습니다. 웹 검색·이미지 분석·복수 경로 재선택은 이번 비교에서 제외했습니다.
 
-근거: HSCodeComp: 실제 전자상거래 상품632개,32개 대분류에 전문가가 미국 기준10자리 코드를 주석한 공개 벤치마크. 본 실험은94개 표본의 앞6자리HS6와 비교. https://huggingface.co/datasets/ATH-MaaS/HSCodeComp ; https://arxiv.org/abs/2510.19631 ; https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md . 공식 한국 HSK 결정문이나 사람의 현지 재검토로 간주하지 않는다.
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/service-scope-jev-experiment-2026-10-07.md ; https://huggingface.co/datasets/ATH-MaaS/HSCodeComp ; https://docs.typesafe.ai/primitives/choice . 서비스 범위는 연구 초안으로 사조의 검증된 정책이 아니다. 기존 단일 경로 Jev와 Luna만 비교. 정답/보류/실패는 공개 레포에서 확인.
 
 ## 17 · Jev 실험 부록
 
-HS 후보 판단시간을 5~6배 줄였습니다
-동일한 입력에서 Jev의 중앙 처리시간과 추정 비용이 더 낮았습니다.
-17   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.06
-HF 표본
-6.4배 빠르게
-추정 비용57.0% 감소
-메루카리
-5.7배 빠르게
-추정 비용53.9% 감소
-HS 분류 단계만 비교했습니다. 전체 URL 분석시간이나 운영 SLA의 개선율이 아닙니다.
+HS 후보 판단시간을 약7배 줄였습니다
+새 서비스 범위93개에서 Jev의 중앙 처리시간과 추정 비용이 더 낮았습니다.
+17   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.07
+판단시간
+약7배 빠르게
+0.645초 ↔ 4.510초
+추정 API 비용
+57.1% 감소
+93개 합계 $0.0226 ↔ $0.0527
+분류 단계의 실험 수치입니다. 전체 URL 분석시간이나 운영 서비스 개선율이 아닙니다.
 
-근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md . HF94개: Jev0.6747679375초/Luna4.296453624초, 비용0.023445996/0.0544944USD. Mercari30개:0.6689978755/3.79168373초, 비용0.00719754/0.01560205USD. 시간은 각 순차 HTTP+파싱+검증 시간 합의 중앙값. 공급사2개 동시 실행, 단계는 순차. 수집·포장·세금 계산·큐 대기시간 제외. 비용은 usage기반 추정, 청구서 확정액 아님.
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/service-scope-jev-experiment-2026-10-07.md ; https://github.com/y00nZZang/product-catalog/blob/main/notebooks/service-scope-results-2026-10-07.json . 새로운93개 단일 경로 계층 탐색. Jev중앙0.6449865829199553초/Luna4.510487750987522초(반올림값, 상세JSON참조). 비용0.022579830000000002/0.052664375USD. 시간은 순차 HTTP+파싱+검증 합. 두 제공자는 같은 상품에서 동시 실행. 수집·큐·배송·세금 단계 제외. 비용usage기반 추정으로 실제 청구서 확정 아님. 품질/답변률/실패는 공개 레포에 별도기록, 비용이 판단품질을 의미하지 않는다.
 
 ## 18 · Jev 실험 부록
 
-품질은 평가 기준별로 구분했습니다
-메루카리의 상위 모델 HS6 일치율84%를 기록했고, HF 정확도 차이도 확인했습니다.
-18   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.06
-평가 기준
-Jev
-GPT-6 Luna
-HF 전문가 라벨 · 전체94개 HS6 정확도
-29.8% (28/94)
-38.3% (36/94)
-메루카리 · 심사자 HS6 일치 (25개)
-84.0% (21/25)
-76.0% (19/25)
-메루카리 · 보류 포함 전체 판단 일치
-70.0% (21/30)
-76.7% (23/30)
-상위 모델과의 일치는 정답 정확도가 아닙니다. HF에서는 Jev의 정확도가 더 낮았습니다.
-도입 방향(제안): 초기 후보 판단을 빠르게 처리하고, 근거 부족·최종 분류는 추가 검토합니다.
-실험 코드·노트북·측정 결과: github.com/y00nZZang/product-catalog/tree/main/notebooks
+빠른 후보 판단과 최종 검토를 구분했습니다
+처리시간·비용 이점과 함께, 재질·용도·정보 부족에 따른 판단 한계를 확인했습니다.
+18   윤장한 · 직구 조사와 도구 구현 · 부록 · 2026.10.07
+검토 항목
+관찰한 사례
+적용 범위 (제안)
+재질·제품 용도
+PU 인조가죽 / 인형용 모자
+추가 근거를 확인해 분류
+복합 재질·세트·부품
+제목·속성·용도가 서로 충돌
+불충분한 정보는 보류
+입력과 참조 라벨
+상품 정보와 라벨의 불일치
+분류 결과와 데이터 함께 검토
+판단 품질과 답변률에는 차이가 있습니다. 최종 관세 분류를 자동 확정하는 근거로 쓰지 않습니다.
+검증 결과: 정확도·답변률·토큰·실패 사례를 공개 레포에서 확인할 수 있습니다.
+공개 실험 기록 · github.com/y00nZZang/product-catalog
 
-근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md ; https://github.com/y00nZZang/product-catalog/blob/main/notebooks/two-datasets-results-2026-10-06.json . HF94개: Jev28/94(29.8%), Luna36/94(38.3%), 보류 포함. 답변 사례만:28/81(34.6%),36/65(55.4%). 독립 Sol이HS6를 선택한Mercari25개에서Jev21/25(84%),Luna19/25(76%). 보류 포함30개 전체판단은Jev21/30(70%),Luna23/30(76.7%). Sol은정답/사람검토아님, 공유모델군편향가능. 운영도입하지않았으며 제안은 실험 결과에 대한 해석이다.
+근거: https://github.com/y00nZZang/product-catalog/blob/main/docs/service-scope-jev-experiment-2026-10-07.md ; https://github.com/y00nZZang/product-catalog/blob/main/notebooks/service-scope-failures-2026-10-07.json . 판단 품질의 동일성을 입증한 실험이 아니다. 후보 판단 단계 적용은 제안이며 서비스운영도입 아님. 과거전체94개, 범위안78개, 새93개를 레포에 구분 보존. 신규모델·복수경로·혼합방법은 후속실험에서 제외.

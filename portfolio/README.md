@@ -15,13 +15,13 @@
 
 ## 부록 · Jev 판단 모델 비교 실험
 
-HS 후보 선택의 중앙 처리시간은 HF94개 표본에서6.4배, 실제 메루카리30개에서5.7배 빨랐습니다. 메루카리의 독립 GPT-6 Sol HS6 일치율은84%였고, HF 정답 정확도는Jev29.8%·Luna38.3%로 차이가 있었습니다. 모든 조건에서 같은 성능을 유지했다고 일반화하지 않고 품질·보류·시간·비용을 분리했습니다.
+가정용·취미 범위에서 선별한 새93개에 대해 기존 단일 경로 Jev와 GPT-6 Luna를 비교했습니다. HS 후보 판단의 중앙 처리시간은0.645초/4.510초로 약7배 빨랐고, 추정 API 비용은57.1% 낮았습니다. 운영 서비스 도입이나 전체 URL 분석시간의 개선 결과는 아닙니다.
 
-HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 분류코드를 붙인 공개 평가 데이터셋입니다. 상품명·속성·카테고리를 제공하며, 이번 실험은94개 표본의 HS6 정답을 사용했습니다. [원본 데이터셋](https://huggingface.co/datasets/ATH-MaaS/HSCodeComp).
+HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 코드를 붙인 공개 평가 데이터셋입니다. [원본 데이터셋](https://huggingface.co/datasets/ATH-MaaS/HSCodeComp). 서비스 범위는 연구 초안이며 검증된 사조 정책으로 간주하지 않습니다.
 
-[공개 실험 설명](https://github.com/y00nZZang/product-catalog/blob/main/docs/jev-experiment-2026-10-06.md) · [코드·노트북](https://github.com/y00nZZang/product-catalog/tree/main/notebooks) · [정제 측정값](https://github.com/y00nZZang/product-catalog/blob/main/notebooks/two-datasets-results-2026-10-06.json)
+판단 품질·답변률에는 차이가 남아 최종 관세 분류에는 추가 검토가 필요합니다. 슬라이드는 시간·비용과 판단 한계를 설명하고, 정확도·답변률·토큰·실패 사례는 공개 레포에서 확인할 수 있습니다. 이전전체94개, 서비스범위78개, 새93개를 별도로 보존합니다. 복수 경로·혼합 방식은 후속 비교에서 제외했습니다.
 
-실험 결과는2026-10-06이며 운영 서비스 도입이나 전체 URL 분석시간 개선 결과가 아닙니다.
+[최신 실험 설명·품질 지표](https://github.com/y00nZZang/product-catalog/blob/main/docs/service-scope-jev-experiment-2026-10-07.md) · [결과 노트북](https://github.com/y00nZZang/product-catalog/blob/main/notebooks/service-scope-results-2026-10-07.ipynb) · [실패 사례](https://github.com/y00nZZang/product-catalog/blob/main/notebooks/service-scope-failures-2026-10-07.json)
 
 ## 제출 자료
 
@@ -33,4 +33,4 @@ HSCodeComp는 실제 전자상거래 상품632개에 전문가가 HS 분류코�
 - [플러그인 코드](https://github.com/y00nZZang/crossborder-purchase-agent)
 - [분석기 코드](https://github.com/y00nZZang/product-catalog) · [데모](https://catalog.janghan.dev/)
 
-문서개정2026-10-06. 구현 보조: Codex. 실구매1건과 입력7회는2026-10-05 기록이며 화면 조작 횟수·시간 절감률과 구분합니다.
+문서개정2026-10-07. 구현 보조: Codex. 실구매1건과 입력7회는2026-10-05 기록이며 화면 조작 횟수·시간 절감률과 구분합니다.
